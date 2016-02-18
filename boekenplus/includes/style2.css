@@ -1,0 +1,128 @@
+header{
+    font-weight: bold;
+}
+
+.headerlogo{
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.headerlogo > img {
+    height: 150px;
+    width: 150px;
+}
+
+#mainHeader {
+    height:80px;
+}
+
+#headername{
+font-size: 40px;
+    color: white;
+    padding: 15px;
+    margin: 15px 15px;
+    font-weight: bold;
+}
+
+
+body {
+    background-image: url("../images/website_Achtergrond_2.jpg");
+    background-color: black;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div#hmenu {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4em 3em 4em 3em;
+    background: grey;
+    width: 1000px;
+    text-align: left;
+    font-family: helvetica
+}
+
+div#hmenu ul {
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+div#hmenu ul li {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline;
+}
+
+div#hmenu ul a:link{
+    margin-left: auto;
+    margin-right: auto;
+    padding: .3em .4em .3em .4em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: medium;
+    color: #004415;
+}
+
+div#hmenu ul a:visited{
+    margin-left: auto;
+    margin-right: auto;
+    padding: .3em .4em .3em .4em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: medium;
+    color: 	#f26305;
+}
+
+
+div#hmenu ul a:hover{
+    margin-left: auto;
+    margin-right: auto;
+    padding: .3em .4em .3em .4em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: medium;
+    color: black;
+    background-color: 	#f26305;
+}
+
+img {
+    display: block;
+    max-width:230px;
+    max-height:95px;
+    width: auto;
+    height: auto;
+    border: 0;
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+th {
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+    background: #262626;
+    color: #ffffff;
+    /*border: 2px solid black;*/
+    font-family: helvetica;
+}
+
+td {
+    height: 30px;
+    vertical-align: middle;
+    padding: 10px;
+    border: 2px solid black;
+    font-family: helvetica;
+
+}

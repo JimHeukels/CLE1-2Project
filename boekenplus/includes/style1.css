@@ -1,0 +1,124 @@
+.welkom {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+
+th {
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+    background: #262626;
+    color: #ffffff;
+    border: 2px solid black;
+    font-family: helvetica;
+}
+
+td {
+    height: 30px;
+    vertical-align: middle;
+    padding: 10px;
+    border: 2px solid black;
+    font-family: helvetica;
+
+}
+
+img {
+    display: block;
+    max-width:230px;
+    max-height:95px;
+    width: auto;
+    height: auto;
+    border: 0;
+}
+
+tr:nth-child(even) {
+    background: #262626;
+    color: #ffffff;
+}
+
+tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+
+/* Nav bar CSS */
+
+.offscreen {
+    position: absolute;
+    top: -30em;
+    left: -300em;
+}
+
+div#hmenu {
+    margin-left: auto;
+    margin-right: auto;
+    padding: .3em 0 .3em 0;
+    background: #ddeebb;
+    width: 60%;
+    text-align: center;
+    font-family: helvetica
+}
+
+div#hmenu ul {
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+div#hmenu ul li {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline;
+}
+
+div#hmenu ul a:link{
+    margin-left: auto;
+    margin-right: auto;
+    padding: .3em .4em .3em .4em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: medium;
+    color: #004415;
+}
+
+div#hmenu ul a:visited{
+    margin-left: auto;
+    margin-right: auto;
+    padding: .3em .4em .3em .4em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: medium;
+    color: #227755;
+}
+
+div#hmenu ul a:active{
+    margin-left: auto;
+    margin-right: auto;
+    padding: .3em .4em .3em .4em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: medium;
+    color: #227755;
+}
+
+div#hmenu ul a:hover{
+    margin-left: auto;
+    margin-right: auto;
+    padding: .3em .4em .3em .4em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: medium;
+    color: #f6f0cc;
+    background-color: #227755;
+}
