@@ -36,8 +36,6 @@ if(!isset($_SESSION['email'])) {
 <body>
 <?php
 require_once('../includes/navigation.template.php');
-//print_r($_SESSION['admin']);
-//print_r($_SESSION['email'])
 
 
 ?>
@@ -59,7 +57,7 @@ require_once('../includes/navigation.template.php');
 
 
   <tbody>
-
+<!--  loop through database to pick up user data-->
   <?php foreach ($accounts as $key => $user) { ?>
     <tr>
       <td><?php echo $user ["id"]; ?></td>

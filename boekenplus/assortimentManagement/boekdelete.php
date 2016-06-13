@@ -20,18 +20,17 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
         $boekendb[] = $row;
     }
     $sql = "DELETE FROM boekendb WHERE id='$currentId'";
-    print_r($currentId);
+
 
     if ($db->query($sql) === TRUE) {
+        //is book is deleted succesfully, redirect user back to book overview
         echo "Boek is uit de database verwijderd!";
                 header("location: ../site/assortiment.php");
-
+        //if deleting fails, show error message
     } else {
         echo "Er is een fout opgetreden tijdens het verwijderen van het boek: " . $db->error;
     }
-    print_r($currentId);
-//    print_r($key);
-//    print_r($boekendb);
+
 }
 
 

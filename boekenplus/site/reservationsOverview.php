@@ -26,6 +26,7 @@ if(!isset($_SESSION['email'])) {
     <div id="hmenu">
         <br><br><br>
     <?php
+//    check if logged in user is an admin. if the user is an admin, all reservations will be shown
     if (isset($_SESSION['email']) && ($_SESSION['admin']) == !0){
     $sql = "SELECT * FROM `reserveringen` JOIN boekendb bdb ON bdb.id = reserveringen.boekendb_id";
 
@@ -38,9 +39,6 @@ if(!isset($_SESSION['email'])) {
     mysqli_close($db);
 
 
-    //De query die op deze pagin wordt uitgevoerd laat alle reserveringen in de gehele database zien.
-    //De reserveringen die uit de database worden opgehaald worden vervolgens in de tabel gezet die hieronder in de html wordt aangemaakt.
-    //Op deze manier kunnen admins alle reserveringen makkelijk overzien.
     ?>
     <table>
         <thead>
@@ -58,6 +56,7 @@ if(!isset($_SESSION['email'])) {
 
         </tfoot>
         <tbody>
+<!--        loop through database to get reservation data-->
         <?php foreach ($data as $reservations) {
             ?>
             <tr>
@@ -89,6 +88,8 @@ if(!isset($_SESSION['email'])) {
          ?>
         </tbody>
     </table>
+
+<!--    if user is a normal user, only his/her personal reservations will be shown-->
     <?php } else if (isset($_SESSION['email']) && ($_SESSION['admin']) == 0){
     $sql = "SELECT * FROM `reserveringen` JOIN boekendb bdb ON bdb.id = reserveringen.boekendb_id WHERE reserveringen.accounts2_id = $currentuserid";
 
@@ -100,21 +101,15 @@ if(!isset($_SESSION['email'])) {
     //Close connection
     mysqli_close($db);
 
-
-    //De query die op deze pagin wordt uitgevoerd laat alle reserveringen in de gehele database zien.
-    //De reserveringen die uit de database worden opgehaald worden vervolgens in de tabel gezet die hieronder in de html wordt aangemaakt.
-    //Op deze manier kunnen admins alle reserveringen makkelijk overzien.
-
-    //TODO: Admin de optie geven reserveringen te verwijderen uit de database. Zo kunnen reserveringen die afgewerkt zijn in de winkel uit de database verwijdert worden zodat de lijst met reserveringen beperkt en actueel blijft.
     ?>
     <table>
         <thead>
         <tr>
-            <th>Reservatie nummer</th> <!-- reservatie nummer-->
-            <th>Account nummer</th> <!-- account nummer-->
+            <th>Reservatie nummer</th>
+            <th>Account nummer</th>
             <th>Boek id</th>
             <th>Titel</th>
-            <th>Auteur</th> <!--auteur van het boek -->
+            <th>Auteur</th>
             <th>Genre</th>
             <th>Jaar van uitgave</th>
             <th>Reservering verwijderen</th>
@@ -138,22 +133,7 @@ if(!isset($_SESSION['email'])) {
             </tr>
             <?php
         };
-        //  table keys:
-        //  0:Reservation number
-        //  1:Account id of the account that made the reservation
-        //  2:ID van het gereserveerde boek
-        //  3:ID van het gereserveerde boek
-        //  4:The titel of the reserved book
-        //  5:Author of the reserved book
-        //  6:Genre of the reserved book
-        //  7:Publishing date of the reserved book
-        //  8:Reserved book's description
-        //  9:Reserved book's image path in the database
-        //  10:Stock of the reserved book
-
-        //  11: NULL. There aren't any keys left after key #10
-
-        //TODO: gebruikers de optie geven om reserveringen te verwijderen voor het geval er een foutieve reservering is gemaakt.
+        //  table keys: see previous table keys comment on line 75
 
         } ?>
         </tbody>

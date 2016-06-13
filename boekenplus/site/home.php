@@ -18,14 +18,14 @@ require_once('../includes/navigation.template.php');
 <div id="hmenu">
     <h1>Welkom bij de BoekenPlus</h1>
 </div>
-<!--<br><br><br>-->
 
 
 <div id="hmenu">
     <h1>Boekenplus nog een beetje meer</h1>
     <br>
     <h2>Hier bij de boekenplus doen wij ons best om een zo divers mogelijk assortiment aan te bieden. Door boeken aan te bieden voor jong en oud. Voor mensen met een dikke of een dunne portemonnee. Voor de doorgewinterde lezer, of de beginneling.
-        <br><br><br>Kortom: Boeken,<br><br> plus een beetje meer.<br><br><br><br><br><br><br><br><br></h2>
+        <br><br>Kortom: Boeken,<br><br>plus een beetje meer.<br>
+    </h2>
 </div>
 </body>
 </html>

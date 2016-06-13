@@ -47,10 +47,11 @@ require_once('../includes/navigation.template.php')
     </tr>
     </thead>
 
-
+<!--    loop through database for current book data-->
     <?php foreach ($boekendb as $key => $boeken) {
         if ($currentId == $key) {
             ?>
+<!--                bookedit.php fills in the form field with the current book data, in which the user can edit the data. the data gets redirected to boekeditprocessing for correct handling of new data.-->
                 <form action="boekeditProcessing.php" method="post">
                     <tr>
                         <td>
@@ -72,7 +73,6 @@ require_once('../includes/navigation.template.php')
 
                         <td><input type="submit" name="submit" title="submit" value="submit"/></td>
 
-                        <!-- <a href="boekdelete.php?id=<?= $boeken ["id"]; ?>">Verwijder boek</a> -->
                     </tr>
                 </form>
         <?php };

@@ -8,6 +8,7 @@ if (!$db){
     die("Connection failed: " . mysqli_connect_error());
 }
 
+//gets id for current book, followed by id user id
 $currentId = $_GET['id'];
 $currentUserid = $_SESSION['id'];
 
@@ -24,13 +25,15 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
 
-
+//loop through database to find book that matches current book id
 foreach ($boekendb as $key => $boeken) {
+    //when book is found, add a reservation for the current user into the reservation table in the database
     if ($currentId == $key) {
         echo $boeken ["id"];
         $currentboekid = $boeken["id"];
         $sql = "INSERT INTO reserveringen(accounts2_id, boekendb_id) VALUES ('$currentUserid', '$currentboekid');";
         if ($db->query($sql) === TRUE) {
+            //if reservation is succesfull, user is sent to reservation overview page
             header("location: ../site/reservationsOverview.php");
             echo "<br/><br/><span>Data Inserted successfully...!!</span>";
         } else {

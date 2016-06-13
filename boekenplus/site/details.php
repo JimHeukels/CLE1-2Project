@@ -3,7 +3,6 @@ require_once "../includes/dbconnection.php";
 session_start();
 
 $currentId = $_GET['id'];
-//print_r($currentId);
 
 //Create query for db & fetch result
 $queryAll = "SELECT * FROM boekendb";
@@ -18,8 +17,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 //Close connection
 mysqli_close($db);
 
-//print_r($albums)
-//print_r($_SESSION['email']);
 ?>
 
 <!DOCTYPE html>
@@ -56,6 +53,7 @@ require_once('../includes/navigation.template.php')
   <tfoot>
   </tfoot>
   <tbody>
+      <!--loop through database to get book data-->
   <?php foreach ($boekendb as $key => $boeken) {
     if ($currentId == $key) {
       ?>
@@ -67,21 +65,21 @@ require_once('../includes/navigation.template.php')
         <td><?= $boeken['jaar']; ?></td>
         <td><?= $boeken['genre']; ?></td>
         <td><?= $boeken['voorraad']; ?></td>
+
+<!--    add admin exclusive commands-->
         <td><a href="../assortimentManagement/boekedit.php?id=<?= $key; ?>"> Pas boek aan</a> </td>
         <td><a href="../assortimentManagement/boekdelete.php?id=<?= $key; ?>"> Verwijder boek</a>  </td>
       </tr>
     <?php };
   };
-  //    print_r($key);
-  //    print_r(" ","");
-  //    var_dump($boekendb);
+
 
   ?>
   </tbody>
 </table>
 
   <?php }}
-
+//    check is logged in user is a regular user
    if (isset($_SESSION['admin'])){
    $admintoken = $_SESSION['admin'];
    if ($admintoken == 0) {?>
@@ -101,6 +99,7 @@ require_once('../includes/navigation.template.php')
     <tfoot>
     </tfoot>
     <tbody>
+    <!--loop through database to get book data-->
     <?php foreach ($boekendb as $key => $boeken) {
       if ($currentId == $key) {
         ?>
@@ -112,14 +111,13 @@ require_once('../includes/navigation.template.php')
           <td><?= $boeken['jaar']; ?></td>
           <td><?= $boeken['genre']; ?></td>
           <td><?= $boeken['voorraad']; ?></td>
+
+<!--          add reservation command-->
           <td><a href="../reserveringen/reservationAdd.php?id=<?= $key ?>">Klik hier om dit boek te reserveren </a></td>
 
         </tr>
       <?php };
     };
-    //    print_r($key);
-    //    print_r(" ","");
-    //    var_dump($boekendb);
 
     ?>
     </tbody>
@@ -131,6 +129,7 @@ require_once('../includes/navigation.template.php')
 </body>
 </html>
 
+<!--if noone is logged in, load page for regular users-->
 <?php }}else { ?>
 
   <table>
@@ -149,6 +148,7 @@ require_once('../includes/navigation.template.php')
     <tfoot>
     </tfoot>
     <tbody>
+<!--    loop through database to get book data-->
     <?php foreach ($boekendb as $key => $boeken) {
       if ($currentId == $key) {
         ?>
@@ -160,14 +160,12 @@ require_once('../includes/navigation.template.php')
           <td><?= $boeken['jaar']; ?></td>
           <td><?= $boeken['genre']; ?></td>
           <td><?= $boeken['voorraad']; ?></td>
+<!--          add reservation command-->
           <td><a href="../reserveringen/reservationAdd.php">Klik om dit boek te reserveren</a> </td>
 
         </tr>
       <?php };
     };
-    //    print_r($key);
-    //    print_r(" ","");
-    //    var_dump($boekendb);
 
     ?>
     </tbody>

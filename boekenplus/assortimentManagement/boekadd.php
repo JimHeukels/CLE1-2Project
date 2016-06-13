@@ -22,8 +22,9 @@ require_once('../includes/navigation.template.php')
     <div >
       <h1>Boek toevoegen</h1>
     </div>
+<!--    book add form is filled in here, information is redirected to another page for correct handling-->
     <form action="boekAddProcessing.php" method="post">
-      <!-- Method can be set as POST for hiding values in URL-->
+      <!-- Method is set as POST to hide values in URL-->
       <label for="titel">Titel:</label>
       <input type="text" id="titel" name="titel" ><br><br>
 

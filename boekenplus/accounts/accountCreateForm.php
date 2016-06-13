@@ -15,6 +15,7 @@ require_once('../includes/navigation.template.php')
     <h1>Maak hier uw account aan</h1>
 </div>
 
+<!--account creating form is filled in on this page, information gets redirected to accountCreateProcessing for correct data handling-->
 <div id=hmenu>
     <form action="accountCreateProcessing.php" method="post">
 

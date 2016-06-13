@@ -19,10 +19,12 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
     while ($row = mysqli_fetch_assoc($result)) {
         $reservations[] = $row;
     }
+    //delete reservation from database where book id matches
     $sql = "DELETE FROM reserveringen WHERE reserveringen.reservering_id='$currentId'";
     print_r($currentId);
 
     if ($db->query($sql) === TRUE) {
+        //if reservation is deleted succesfully, redirect user to reservation overview
         echo "Reservering is uit de database verwijderd!";
         header("location: ../site/reservationsOverview.php");
 
@@ -30,8 +32,6 @@ if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
         echo "Er is een fout opgetreden tijdens het verwijderen van de reservering: " . $db->error;
     }
     print_r($currentId);
-//    print_r($key);
-//    print_r($boekendb);
 }
 
 

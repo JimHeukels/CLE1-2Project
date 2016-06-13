@@ -28,6 +28,7 @@ if(isset($_POST['add'])) {
   $voorraad = $_POST['voorraad'];
   $inhoud = $_POST['inhoud'];
 
+  //escape strings for security
   $titel = mysqli_real_escape_string($db, $titel);
   $auteur = mysqli_real_escape_string($db, $auteur);
   $genre = mysqli_real_escape_string($db, $genre);
@@ -42,6 +43,7 @@ if(isset($_POST['add'])) {
 
 
 if ($db->query($sql) === TRUE) {
+  //if book is inserted correctly, redirect user to book overview
     header("location: ../site/assortiment.php");
     echo "<br/><br/><span>Data Inserted successfully...!!</span>";
   } else {

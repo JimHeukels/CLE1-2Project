@@ -34,17 +34,23 @@ require_once('../includes/navigation.template.php')
 </div>
 
 <div id="hmenu">
-    <!--  tabel with admin functions-->
+
+<!--    check if current logged in user is an admin or not-->
     <?php if (isset($_SESSION['admin'])){
     $admintoken = $_SESSION['admin'];
     if ($admintoken == !0) {?>
         <div>
+
+<!--            if user is admin, add admin exclusive function to website navigation bar-->
             <?php if (isset($_SESSION['admin'])){
                 $admintoken = $_SESSION['admin'];
                 if ($admintoken == 1) {?>
                     <h3><a href="../assortimentManagement/boekadd.php"> Boek toevoegen </a></h3> <?php
                 }}?>
+
+<!--            load rest of the page-->
         </div>
+<!--        table to show information from book database-->
         <table>
             <thead>
             <tr>
@@ -64,7 +70,7 @@ require_once('../includes/navigation.template.php')
 
 
             <tbody>
-
+<!--            code loops through the book database-->
             <?php foreach ($boekendb as $key => $boeken) { ?>
                 <tr>
                     <td><?php echo $boeken ["id"]; ?></td>
@@ -74,6 +80,7 @@ require_once('../includes/navigation.template.php')
                     <td><?php echo $boeken['jaar']; ?></td>
                     <td><?php echo $boeken['genre']; ?></td>
                     <td><?php echo $boeken['voorraad']; ?></td>
+<!--                    admins have the right to remove books, link gets added here-->
                     <td><a href="../assortimentManagement/boekdelete.php?id=<?= $boeken['id']; ?>">Boek verwijderen</a></td>
                     <td><a href="details.php?id=<?= $key; ?>">Details pagina</a></td>
                 </tr>
@@ -81,11 +88,14 @@ require_once('../includes/navigation.template.php')
             </tbody>
         </table>
 
-    <?php }} //table with normal user functions
+    <?php }}
 
+//    check is logged in user is a regular user
     if (isset($_SESSION['admin'])){
         $admintoken = $_SESSION['admin'];
         if ($admintoken == 0){ ?>
+
+<!--    table to show data from book database-->
     <table>
         <thead>
         <tr>
@@ -102,7 +112,7 @@ require_once('../includes/navigation.template.php')
 
 
         <tbody>
-
+<!--        code loops through the book database-->
         <?php foreach ($boekendb as $key => $boeken) { ?>
         <tr>
             <td><?php echo $boeken ["id"]; ?></td>
@@ -124,7 +134,7 @@ require_once('../includes/navigation.template.php')
 
 <?php }
         }
-
+//if noone is logged in, load page for regular users
     else { ?>
     <table>
         <thead>
@@ -142,7 +152,7 @@ require_once('../includes/navigation.template.php')
 
 
         <tbody>
-
+<!--        code loops through the book database-->
         <?php foreach ($boekendb as $key => $boeken) { ?>
             <tr>
                 <td><?php echo $boeken ["id"]; ?></td>

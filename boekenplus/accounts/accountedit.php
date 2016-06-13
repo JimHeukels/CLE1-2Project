@@ -2,14 +2,8 @@
 require_once "../includes/dbconnection.php";
 session_start();
 $currentuseremail= $_SESSION['email'];
-print_r($_SESSION['id']);
-print_r($_SESSION['email']);
-print_r($_SESSION['admin']);
 
-//check connection
-//if (!$db){
-//    die("Connection failed: " . mysqli_connect_error());
-//}
+
 
 //Create query for db & fetch result
 $queryAll = "SELECT * FROM accounts2 WHERE accounts2.email = '$currentuseremail'";
@@ -36,6 +30,7 @@ mysqli_close($db);
 require_once('../includes/navigation.template.php')
 ?>
 
+
 <form method="get" action="accounteditprocessing.php">
   <table>
     <thead>
@@ -51,9 +46,12 @@ require_once('../includes/navigation.template.php')
     </tbody>
   </table>
 </form>
+
+<!--loop through database to get account information. Show account information in the form fields-->
 <?php foreach ($accounts as $key => $users) {
     ?>
     <div id="hmenu">
+<!--      form information will be sent to accounteditprocessing for processing-->
       <form action="accounteditprocessing.php" method="post">
         <input type="hidden" name="id" value=" <?php echo $users ["id"]; ?>"/>
 
@@ -73,13 +71,6 @@ require_once('../includes/navigation.template.php')
     </div>
   <?php };
 
-
-
-//};
-//var_dump($key);
-//var_dump($currentId);
-//var_dump($boeken);
-//var_dump($boekendb);
 ?>
 </body>
 </html>
